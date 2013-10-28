@@ -1,3 +1,35 @@
+/*
+ * Rules
+ * 
+ * Styling by ID is not permitted.
+ * Styling by tag is used sparingly and is mainly used for 
+ *    resets and cross-browser compatibility.
+ * Descendent selectors are forbidden. Use child selectors.
+ * 
+ * Class stylings are divided into layout, which are prefixed with an 'l', and
+ * module stylings which are prefixed with an 'm'.
+ *
+ * A module is a re-usable page element and consists of the HTML, CSS, and JS
+ * that is required for that page element. Examples are navigation or the search bar.
+ * Modules are designed be used in different positions and sizes.
+ *
+ * Layout stylings are used to position and size modules on a page.
+ * Module stylings are used on every instance of a module.
+ *
+ * Classes consist of <prefix><moduleName>[-<component>]
+ * <prefix> is either 'l' or 'm'
+ * <moduleName> is a camelCase identifier for the module
+ * <component> is a camelCase identifier for a component of the module
+ *
+ * HTML elements should have a maximum of 1 layout class applied.
+ * Multiple module classes may be applied to a given element.
+ *
+ * Subclasses of modules are called submodules. To use a submodule, apply
+ * the classes of both the parent and child.
+ *
+ * Submodule classes are of the form <prefix><parentModuleName>_<subModuleName>[-<component>]
+ */
+
 @import "susy";
 
 $total-columns  : 12;             // a 12-column grid
@@ -8,6 +40,8 @@ $grid-padding   : $gutter-width;  // grid-padding equal to gutters
 $green          : rgba(171, 209, 78, 0.8);
 $blue           : #3cc1ca;
 $white          : #ffffff;
+
+// ##########################################################
 
 body {
     font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -33,7 +67,230 @@ h1 {
     font-size: 24px;
 }
 
-.button {
+// ##########################################################
+
+.clear {
+    clear: both;
+}
+
+// ##########################################################
+
+.lBody {
+    @include container;
+}
+
+// ##########################################################
+
+.lHeader1 {
+    @include span-columns(12 omega,12);
+
+    margin-top: 20px;
+}
+
+.lHeader1-social {
+    @include pre(3,12);
+    @include span-columns(2,12);
+    @include post(2,12);
+}
+
+.lHeader1-loginRegister {
+    @include span-columns(2,12);
+}
+
+.lHeader1-shoppingCart {
+    @include span-columns(1,12);
+}
+
+.lHeader1-search {
+    @include span-columns(2 omega,12);
+}
+
+// ##########################################################
+
+.lHeader2 {
+    @include span-columns(12 omega,12);
+}
+
+.lHeader2-logo {
+    @include span-columns(3,12);
+
+    > img {
+        max-width: 100%;
+        margin: auto;
+    }
+}
+
+.lHeader2-nav {
+    @include span-columns(9 omega,12);
+
+    margin-top: 30px;
+}
+
+// ##########################################################
+
+.lProductDetails {
+}
+
+.lProductDetails-mainImage {
+    @include span-columns(3,12);
+
+    > img {
+        max-width: 100%;
+        margin: auto;
+    }
+}
+
+.lProductDetails-mainText {
+    @include span-columns(6,12);
+
+    padding-top: 30px;
+}
+
+.lProductDetails-purchaseButtons {
+    @include span-columns(3 omega,12);
+
+    padding-top: 30px;
+}
+
+.lProductDetails-leadTabs {
+    @include span-columns(3, 12);
+}
+
+.lProductDetails-reviewContainer {
+    @include span-columns(9 omega,12);
+}
+
+.lProductDetails-reviewTabs {
+    > li:first-child {
+        margin-left: 20px;
+    }
+}
+
+.lProductDetails-reviewContent {
+    min-height: 200px;
+
+    > p {
+        @include span-columns(7,9);
+    }
+}
+
+.lProductDetails-futuredermReview-sidebar {
+    @include span-columns(2 omega,9);
+}
+
+// ##########################################################
+
+.lFooter-outer {
+    @include container;
+
+    background: url('http://www.futurederm.com/Themes/FutureDerm.Theme/Content/footer-background.png') repeat;
+    width: 100%;
+}
+
+.lFooter-inner {
+    @include span-columns(12 omega, 12);
+
+    margin-top: 10px;
+    padding-top: 40px;
+    min-height: 160px;
+}
+
+.lFooter-disclaimers {
+    @include span-columns(5,12);
+
+    border-top: 1px solid #777777;;
+    border-bottom: 1px solid #777777;
+    clear: both;
+    color: white;
+    font-size: 10px;
+    height: 21px;
+    padding: 8px 8px 8px 0;
+    margin-right: 0;
+
+    > * {
+        vertical-align: middle;
+    }
+}
+
+.lFooter-policyLinks {
+    display: inline;
+
+    > li {
+        display: inline;
+    }
+}
+
+.lFooter-copyright {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.lFooter-socialContainer {
+    @include span-columns(7 omega,12);
+
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+    height: 21px;
+    padding: 8px 0 8px 8px;
+}
+
+.lFooter-social {
+    float: right;
+}
+
+.lFooter-logo {
+    @include span-columns(3,12);
+
+    > img {
+        width: 100%;
+    }
+}
+
+.lFooter-navContainer {
+    @include pre(2,12);
+    @include span-columns(7 omega, 12);
+}
+
+// ##########################################################
+
+.mLeadTabs { // applied to ol or ul
+    > li {
+        cursor: pointer;
+        color: $white;
+        background-color: $blue;
+        padding: 10px;
+        margin: 5px;
+    }
+}
+
+// ##########################################################
+
+.mFutureDermRating {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.mFutureDermRating-title {
+    color: red;
+    font-size: 14px;
+}
+
+.mFutureDermRating-percentage {
+    color: $blue;
+    font-size: 45px;
+}
+
+// ##########################################################
+
+.mButtonList { // applied to ul or ol
+    > li {
+        @extend .mButton;
+    }
+}
+
+// ##########################################################
+
+.mButton {
     padding: 6px 12px;
     text-align: center;
     vertical-align: middle;
@@ -44,291 +301,113 @@ h1 {
     margin-top: 5px
 }
 
-.clickable_li {
-    cursor: pointer;
-}
+// ##########################################################
 
-.container {
-    @include container;
-}
-
-.clear {
-    clear: both;
-}
-
-.header1 {
-    @include span-columns(12 omega,12);
-
-    margin-top: 20px;
+.mNavigation {
+    margin-bottom: 0;
+    float: right;
     font-size: 12px;
 
-    .social {
-        @include pre(3,12);
-        @include span-columns(2,12);
-        @include post(2,12);
-
-        a {
-            margin-left: 10px;
-        }
-            
-        a:last-child {
-            padding-right: 0;
-        }
-    }
-
-    .login_register {
-        @include span-columns(2,12);
-
+    > li {
+        cursor: pointer;
         color: $blue;
-
-        * {
-            vertical-align: middle;
-        }
+        margin-left: 17px;
+        margin-right: 17px;
+        display: inline-block;
+        text-transform: uppercase;
     }
 
-    .cart {
-        @include span-columns(1,12);
-
-        * {
-            vertical-align: middle;
-        }
-    }
-
-    .search {
-        @include span-columns(2 omega,12);
-
-        input {
-            width: 115px;
-            border-style: none;
-            border-bottom: 1px solid $blue;
-        }
+    > li:last-child {
+        margin-right: 7px;
     }
 }
 
-.header2 {
-    @include span-columns(12 omega,12);
+// ##########################################################
 
+.mSiteSearch {}
+
+.mSiteSearch_input {
+    width: 115px;
+    border-style: none;
+    border-bottom: 1px solid $blue;
+}
+
+// ##########################################################
+
+.mShoppingCart {    
+}
+
+.mShoppingCart_size {
+    color: $blue;
+    vertical-align: middle;
+}
+
+// ##########################################################
+
+.mLoginRegister {
     font-size: 12px;
-
-    .logo {
-        @include span-columns(3,12);
-
-        img {
-            max-width: 100%;
-            margin: auto;
-        }
-    }
-
-    .main_nav_container {
-        @include span-columns(9 omega,12);
-
-        margin-top: 30px;
-
-        .main_nav {
-            margin-bottom: 0;
-            float: right;
-
-            li {
-                @extend .clickable_li;
-
-                color: $blue;
-                margin-left: 17px;
-                margin-right: 17px;
-                display: inline-block;
-                text-transform: uppercase;
-            }
-
-            li:last-child {
-                margin-right: 7px;
-            }
-        }
-    }
 }
 
-.footer_outer {
-    background: url('http://www.futurederm.com/Themes/FutureDerm.Theme/Content/footer-background.png') repeat;
+.mLoginRegister_links {
+    color: $blue;
+    vertical-align: middle;
+}
 
-    width: 100%;
+// ##########################################################
 
-    .footer_inner {
-        @include span-columns(12 omega, 12);
+.mIconSet {
+    > a {
+        text-decoration: none;
 
-        margin-top: 10px;
-        padding-top: 40px;
-        min-height: 160px;
-
-        .logo {
-            @include span-columns(3,12);
-
-            img {
-                width: 100%;
-            }
-        }
-
-        .footer_nav_container {
-            @include pre(2,12);
-            @include span-columns(7 omega, 12);
-
-            .footer_nav {
-                margin-top: 10px;
-                text-transform: uppercase;
-                color: $blue;
-                font-size: 12px;
-                float: right;
-
-                li {
-                    display: inline;
-                    margin-left: 17px;
-                    margin-right: 17px;
-                }
-            }
-        }
-
-        .disclaimers {
-            @include span-columns(4,12);
-
-            border-top: 1px solid #777777;;
-            border-bottom: 1px solid #777777;
-            clear: both;
-            color: white;
-            font-size: 10px;
-            height: 21px;
-            padding: 8px 8px 8px 0;
+        &:last-child {
             margin-right: 0;
-
-            * {
-                vertical-align: middle;
-            }
-
-            span {
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-
-            ul,li {
-                display: inline;
-            }
-        }
-
-        .footer_social_container {
-            @include span-columns(8 omega,12);
-
-            border-top: 1px solid #777777;
-            border-bottom: 1px solid #777777;
-            height: 21px;
-            padding: 8px 0 8px 8px;
-            
-            .footer_social {
-                float: right;
-
-                a {
-                    margin-left: 20px;
-                    margin-right: 20px;
-                }
-            }
         }
     }
 }
 
+.mIconSet_space5 {
+    > a {
+        margin-right: 5px;
+    }
+}
+
+.mIconSet_space10 {
+    > a {
+        margin-right: 10px;
+    }
+}
 
 // ###########################################################
 
+.mTabs { // applied on div
+}
 
-.product_details {
-    .main_image {
-        @include span-columns(3,12);
+.mTabs-itemList { // applied on ol or ul
+    margin-bottom: 0;
+}
 
-        img {
-            max-width: 100%;
-            margin: auto;
-        }
-    }
+.mTabs-item {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid $blue;
+    padding: 5px;
+    min-width: 170px;
+    text-align: center;
 
-    .main_text {
-        @include span-columns(6,12);
-
-        padding-top: 30px;
-    }
-
-    .purchase_buttons {
-        @include span-columns(3 omega,12);
-
-        padding-top: 30px;
-
-        li {
-            @extend .button;
-        }
-    }
-
-    .lead_tabs {
-        @include span-columns(3, 12);
-
-        li {
-            @extend .clickable_li;
-
-            color: $white;
-            background-color: $blue;
-            padding: 10px;
-            margin: 5px;
-        }
-    }
-
-    .review_tabs {
-        @include span-columns(9 omega,12);
-
-        ul {
-            margin-bottom: 0;
-        }
-
-        li {
-            @extend .clickable_li;
-
-            display: inline-block;
-            border: 1px solid $blue;
-            padding: 5px;
-            min-width: 170px;
-            text-align: center;
-        }
-
-        li.ui-tabs-active {
-            z-index: 2;
-            border-bottom: 1px solid #ffffff;
-        }
-
-        li:first-child {
-            margin-left: 20px;
-        }
-
-        > div {
-            border: 1px solid $blue;
-            padding: 5px;
-            margin-top: -2px;
-            min-height: 200px;
-        }
-
-        #tabs_futurederm_review {
-            p {
-                @include span-columns(7,9);
-
-                margin-top: 30px;
-            }
-
-            .sidebar {
-                @include span-columns(2 omega,9);
-
-                text-align: center;
-                margin-top: 30px;
-
-                .rating_title {
-                    color: red;
-                    font-size: 14px;
-                }
-
-                .rating_percentage {
-                    color: $blue;
-                    font-size: 45px;
-                }
-            }
-        }
+    &.ui-tabs-active {
+        z-index: 2;
+        border-bottom: 1px solid #ffffff;
     }
 }
+
+.mTabs-content {
+    border: 1px solid $blue;
+    padding: 5px;
+    margin-top: -2px;
+
+    > p {
+        margin-top: 30px;
+    }
+}
+
+// ###########################################################

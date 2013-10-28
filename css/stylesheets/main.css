@@ -1,51 +1,70 @@
-/* line 12, ../sass/main.scss */
+/*
+ * Rules
+ * 
+ * Styling by ID is not permitted.
+ * Styling by tag is used sparingly and is mainly used for 
+ *    resets and cross-browser compatibility.
+ * Descendent selectors are forbidden. Use child selectors.
+ * 
+ * Class stylings are divided into layout, which are prefixed with an 'l', and
+ * module stylings which are prefixed with an 'm'.
+ *
+ * A module is a re-usable page element and consists of the HTML, CSS, and JS
+ * that is required for that page element. Examples are navigation or the search bar.
+ * Modules are designed be used in different positions and sizes.
+ *
+ * Layout stylings are used to position and size modules on a page.
+ * Module stylings are used on every instance of a module.
+ *
+ * Classes consist of <prefix><moduleName>[-<component>]
+ * <prefix> is either 'l' or 'm'
+ * <moduleName> is a camelCase identifier for the module
+ * <component> is a camelCase identifier for a component of the module
+ *
+ * HTML elements should have a maximum of 1 layout class applied.
+ * Multiple module classes may be applied to a given element.
+ *
+ * Subclasses of modules are called submodules. To use a submodule, apply
+ * the classes of both the parent and child.
+ *
+ * Submodule classes are of the form <prefix><parentModuleName>_<subModuleName>[-<component>]
+ */
+/* line 46, ../sass/main.scss */
 body {
   font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* line 16, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* line 21, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 a:hover {
   text-decoration: underline;
   color: black;
 }
 
-/* line 26, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 ol, ul {
   list-style: none;
   padding: 0;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 h1 {
   color: rgba(171, 209, 78, 0.8);
   font-size: 24px;
 }
 
-/* line 36, ../sass/main.scss */
-.button, .product_details .purchase_buttons li {
-  padding: 6px 12px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: rgba(171, 209, 78, 0.8);
-  margin-bottom: 5px;
-  margin-top: 5px;
+/* line 72, ../sass/main.scss */
+.clear {
+  clear: both;
 }
 
-/* line 47, ../sass/main.scss */
-.clickable_li, .header2 .main_nav_container .main_nav li, .product_details .lead_tabs li, .product_details .review_tabs li {
-  cursor: pointer;
-}
-
-/* line 51, ../sass/main.scss */
-.container {
+/* line 78, ../sass/main.scss */
+.lBody {
   *zoom: 1;
   max-width: 59em;
   _width: 59em;
@@ -55,29 +74,24 @@ h1 {
   margin-right: auto;
 }
 /* line 38, ../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.container:after {
+.lBody:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 55, ../sass/main.scss */
-.clear {
-  clear: both;
-}
-
-/* line 59, ../sass/main.scss */
-.header1 {
+/* line 84, ../sass/main.scss */
+.lHeader1 {
   width: 100%;
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
   margin-top: 20px;
-  font-size: 12px;
 }
-/* line 65, ../sass/main.scss */
-.header1 .social {
+
+/* line 90, ../sass/main.scss */
+.lHeader1-social {
   margin-left: 25.42373%;
   width: 15.25424%;
   float: left;
@@ -85,75 +99,56 @@ h1 {
   display: inline;
   margin-right: 16.94915%;
 }
-/* line 70, ../sass/main.scss */
-.header1 .social a {
-  margin-left: 10px;
-}
-/* line 74, ../sass/main.scss */
-.header1 .social a:last-child {
-  padding-right: 0;
-}
-/* line 79, ../sass/main.scss */
-.header1 .login_register {
+
+/* line 96, ../sass/main.scss */
+.lHeader1-loginRegister {
   width: 15.25424%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
-  color: #3cc1ca;
 }
-/* line 84, ../sass/main.scss */
-.header1 .login_register * {
-  vertical-align: middle;
-}
-/* line 89, ../sass/main.scss */
-.header1 .cart {
+
+/* line 100, ../sass/main.scss */
+.lHeader1-shoppingCart {
   width: 6.77966%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 92, ../sass/main.scss */
-.header1 .cart * {
-  vertical-align: middle;
-}
-/* line 97, ../sass/main.scss */
-.header1 .search {
+
+/* line 104, ../sass/main.scss */
+.lHeader1-search {
   width: 15.25424%;
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
 }
-/* line 100, ../sass/main.scss */
-.header1 .search input {
-  width: 115px;
-  border-style: none;
-  border-bottom: 1px solid #3cc1ca;
-}
 
-/* line 108, ../sass/main.scss */
-.header2 {
+/* line 110, ../sass/main.scss */
+.lHeader2 {
   width: 100%;
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
-  font-size: 12px;
 }
-/* line 113, ../sass/main.scss */
-.header2 .logo {
+
+/* line 114, ../sass/main.scss */
+.lHeader2-logo {
   width: 23.72881%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 116, ../sass/main.scss */
-.header2 .logo img {
+/* line 117, ../sass/main.scss */
+.lHeader2-logo > img {
   max-width: 100%;
   margin: auto;
 }
-/* line 122, ../sass/main.scss */
-.header2 .main_nav_container {
+
+/* line 123, ../sass/main.scss */
+.lHeader2-nav {
   width: 74.57627%;
   float: right;
   margin-right: 0;
@@ -161,31 +156,103 @@ h1 {
   display: inline;
   margin-top: 30px;
 }
-/* line 127, ../sass/main.scss */
-.header2 .main_nav_container .main_nav {
-  margin-bottom: 0;
-  float: right;
+
+/* line 134, ../sass/main.scss */
+.lProductDetails-mainImage {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
 }
-/* line 131, ../sass/main.scss */
-.header2 .main_nav_container .main_nav li {
-  color: #3cc1ca;
-  margin-left: 17px;
-  margin-right: 17px;
-  display: inline-block;
-  text-transform: uppercase;
-}
-/* line 141, ../sass/main.scss */
-.header2 .main_nav_container .main_nav li:last-child {
-  margin-right: 7px;
+/* line 137, ../sass/main.scss */
+.lProductDetails-mainImage > img {
+  max-width: 100%;
+  margin: auto;
 }
 
-/* line 148, ../sass/main.scss */
-.footer_outer {
+/* line 143, ../sass/main.scss */
+.lProductDetails-mainText {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+  padding-top: 30px;
+}
+
+/* line 149, ../sass/main.scss */
+.lProductDetails-purchaseButtons {
+  width: 23.72881%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
+  padding-top: 30px;
+}
+
+/* line 155, ../sass/main.scss */
+.lProductDetails-leadTabs {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+
+/* line 159, ../sass/main.scss */
+.lProductDetails-reviewContainer {
+  width: 74.57627%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
+}
+
+/* line 164, ../sass/main.scss */
+.lProductDetails-reviewTabs > li:first-child {
+  margin-left: 20px;
+}
+
+/* line 169, ../sass/main.scss */
+.lProductDetails-reviewContent {
+  min-height: 200px;
+}
+/* line 172, ../sass/main.scss */
+.lProductDetails-reviewContent > p {
+  width: 77.27273%;
+  float: left;
+  margin-right: 2.27273%;
+  display: inline;
+}
+
+/* line 177, ../sass/main.scss */
+.lProductDetails-futuredermReview-sidebar {
+  width: 20.45455%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -1em;
+  display: inline;
+}
+
+/* line 183, ../sass/main.scss */
+.lFooter-outer {
+  *zoom: 1;
+  max-width: 59em;
+  _width: 59em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
   background: url("http://www.futurederm.com/Themes/FutureDerm.Theme/Content/footer-background.png") repeat;
   width: 100%;
 }
-/* line 153, ../sass/main.scss */
-.footer_outer .footer_inner {
+/* line 38, ../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.lFooter-outer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 190, ../sass/main.scss */
+.lFooter-inner {
   width: 100%;
   float: right;
   margin-right: 0;
@@ -195,43 +262,10 @@ h1 {
   padding-top: 40px;
   min-height: 160px;
 }
-/* line 160, ../sass/main.scss */
-.footer_outer .footer_inner .logo {
-  width: 23.72881%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-/* line 163, ../sass/main.scss */
-.footer_outer .footer_inner .logo img {
-  width: 100%;
-}
-/* line 168, ../sass/main.scss */
-.footer_outer .footer_inner .footer_nav_container {
-  margin-left: 16.94915%;
-  width: 57.62712%;
-  float: right;
-  margin-right: 0;
-  *margin-left: -1em;
-  display: inline;
-}
-/* line 172, ../sass/main.scss */
-.footer_outer .footer_inner .footer_nav_container .footer_nav {
-  margin-top: 10px;
-  text-transform: uppercase;
-  color: #3cc1ca;
-  font-size: 12px;
-  float: right;
-}
-/* line 179, ../sass/main.scss */
-.footer_outer .footer_inner .footer_nav_container .footer_nav li {
-  display: inline;
-  margin-left: 17px;
-  margin-right: 17px;
-}
-/* line 187, ../sass/main.scss */
-.footer_outer .footer_inner .disclaimers {
-  width: 32.20339%;
+
+/* line 198, ../sass/main.scss */
+.lFooter-disclaimers {
+  width: 40.67797%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
@@ -244,22 +278,29 @@ h1 {
   padding: 8px 8px 8px 0;
   margin-right: 0;
 }
-/* line 199, ../sass/main.scss */
-.footer_outer .footer_inner .disclaimers * {
+/* line 210, ../sass/main.scss */
+.lFooter-disclaimers > * {
   vertical-align: middle;
 }
-/* line 203, ../sass/main.scss */
-.footer_outer .footer_inner .disclaimers span {
+
+/* line 215, ../sass/main.scss */
+.lFooter-policyLinks {
+  display: inline;
+}
+/* line 218, ../sass/main.scss */
+.lFooter-policyLinks > li {
+  display: inline;
+}
+
+/* line 223, ../sass/main.scss */
+.lFooter-copyright {
   margin-left: 20px;
   margin-right: 20px;
 }
-/* line 208, ../sass/main.scss */
-.footer_outer .footer_inner .disclaimers ul, .footer_outer .footer_inner .disclaimers li {
-  display: inline;
-}
-/* line 213, ../sass/main.scss */
-.footer_outer .footer_inner .footer_social_container {
-  width: 66.10169%;
+
+/* line 228, ../sass/main.scss */
+.lFooter-socialContainer {
+  width: 57.62712%;
   float: right;
   margin-right: 0;
   *margin-left: -1em;
@@ -269,120 +310,163 @@ h1 {
   height: 21px;
   padding: 8px 0 8px 8px;
 }
-/* line 221, ../sass/main.scss */
-.footer_outer .footer_inner .footer_social_container .footer_social {
+
+/* line 237, ../sass/main.scss */
+.lFooter-social {
   float: right;
 }
-/* line 224, ../sass/main.scss */
-.footer_outer .footer_inner .footer_social_container .footer_social a {
-  margin-left: 20px;
-  margin-right: 20px;
+
+/* line 241, ../sass/main.scss */
+.lFooter-logo {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 244, ../sass/main.scss */
+.lFooter-logo > img {
+  width: 100%;
 }
 
-/* line 238, ../sass/main.scss */
-.product_details .main_image {
-  width: 23.72881%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-/* line 241, ../sass/main.scss */
-.product_details .main_image img {
-  max-width: 100%;
-  margin: auto;
-}
-/* line 247, ../sass/main.scss */
-.product_details .main_text {
-  width: 49.15254%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-  padding-top: 30px;
-}
-/* line 253, ../sass/main.scss */
-.product_details .purchase_buttons {
-  width: 23.72881%;
+/* line 249, ../sass/main.scss */
+.lFooter-navContainer {
+  margin-left: 16.94915%;
+  width: 57.62712%;
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
-  padding-top: 30px;
 }
-/* line 263, ../sass/main.scss */
-.product_details .lead_tabs {
-  width: 23.72881%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-/* line 266, ../sass/main.scss */
-.product_details .lead_tabs li {
+
+/* line 257, ../sass/main.scss */
+.mLeadTabs > li {
+  cursor: pointer;
   color: white;
   background-color: #3cc1ca;
   padding: 10px;
   margin: 5px;
 }
-/* line 276, ../sass/main.scss */
-.product_details .review_tabs {
-  width: 74.57627%;
-  float: right;
-  margin-right: 0;
-  *margin-left: -1em;
-  display: inline;
+
+/* line 268, ../sass/main.scss */
+.mFutureDermRating {
+  text-align: center;
+  margin-top: 30px;
 }
-/* line 279, ../sass/main.scss */
-.product_details .review_tabs ul {
+
+/* line 273, ../sass/main.scss */
+.mFutureDermRating-title {
+  color: red;
+  font-size: 14px;
+}
+
+/* line 278, ../sass/main.scss */
+.mFutureDermRating-percentage {
+  color: #3cc1ca;
+  font-size: 45px;
+}
+
+/* line 293, ../sass/main.scss */
+.mButton, .mButtonList > li {
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: rgba(171, 209, 78, 0.8);
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+/* line 306, ../sass/main.scss */
+.mNavigation {
+  margin-bottom: 0;
+  float: right;
+  font-size: 12px;
+}
+/* line 311, ../sass/main.scss */
+.mNavigation > li {
+  cursor: pointer;
+  color: #3cc1ca;
+  margin-left: 17px;
+  margin-right: 17px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+/* line 320, ../sass/main.scss */
+.mNavigation > li:last-child {
+  margin-right: 7px;
+}
+
+/* line 329, ../sass/main.scss */
+.mSiteSearch_input {
+  width: 115px;
+  border-style: none;
+  border-bottom: 1px solid #3cc1ca;
+}
+
+/* line 340, ../sass/main.scss */
+.mShoppingCart_size {
+  color: #3cc1ca;
+  vertical-align: middle;
+}
+
+/* line 347, ../sass/main.scss */
+.mLoginRegister {
+  font-size: 12px;
+}
+
+/* line 351, ../sass/main.scss */
+.mLoginRegister_links {
+  color: #3cc1ca;
+  vertical-align: middle;
+}
+
+/* line 359, ../sass/main.scss */
+.mIconSet > a {
+  text-decoration: none;
+}
+/* line 362, ../sass/main.scss */
+.mIconSet > a:last-child {
+  margin-right: 0;
+}
+
+/* line 369, ../sass/main.scss */
+.mIconSet_space5 > a {
+  margin-right: 5px;
+}
+
+/* line 375, ../sass/main.scss */
+.mIconSet_space10 > a {
+  margin-right: 10px;
+}
+
+/* line 385, ../sass/main.scss */
+.mTabs-itemList {
   margin-bottom: 0;
 }
-/* line 283, ../sass/main.scss */
-.product_details .review_tabs li {
+
+/* line 389, ../sass/main.scss */
+.mTabs-item {
+  cursor: pointer;
   display: inline-block;
   border: 1px solid #3cc1ca;
   padding: 5px;
   min-width: 170px;
   text-align: center;
 }
-/* line 293, ../sass/main.scss */
-.product_details .review_tabs li.ui-tabs-active {
+/* line 397, ../sass/main.scss */
+.mTabs-item.ui-tabs-active {
   z-index: 2;
   border-bottom: 1px solid #ffffff;
 }
-/* line 298, ../sass/main.scss */
-.product_details .review_tabs li:first-child {
-  margin-left: 20px;
-}
-/* line 302, ../sass/main.scss */
-.product_details .review_tabs > div {
+
+/* line 403, ../sass/main.scss */
+.mTabs-content {
   border: 1px solid #3cc1ca;
   padding: 5px;
   margin-top: -2px;
-  min-height: 200px;
 }
-/* line 310, ../sass/main.scss */
-.product_details .review_tabs #tabs_futurederm_review p {
-  width: 77.27273%;
-  float: left;
-  margin-right: 2.27273%;
-  display: inline;
+/* line 408, ../sass/main.scss */
+.mTabs-content > p {
   margin-top: 30px;
-}
-/* line 316, ../sass/main.scss */
-.product_details .review_tabs #tabs_futurederm_review .sidebar {
-  width: 20.45455%;
-  float: right;
-  margin-right: 0;
-  *margin-left: -1em;
-  display: inline;
-  text-align: center;
-  margin-top: 30px;
-}
-/* line 322, ../sass/main.scss */
-.product_details .review_tabs #tabs_futurederm_review .sidebar .rating_title {
-  color: red;
-  font-size: 14px;
-}
-/* line 327, ../sass/main.scss */
-.product_details .review_tabs #tabs_futurederm_review .sidebar .rating_percentage {
-  color: #3cc1ca;
-  font-size: 45px;
 }
